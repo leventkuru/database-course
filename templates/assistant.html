@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Assistant{% endblock %}
+{% block content %}
+        <h3>Assistant Information</h3>
+
+        <div class="articles">
+            {% for assistant in assistants %}
+            <article>
+                <h4>{{assistant['assistantId']}}</h4>
+                <ul>
+                    <li><span class="time">{{assistant['name']}}</span></li>
+                    <li><span class="time">{{assistant['surname']}}</span></li>
+                    <li><span class="user">{{assistant['email']}}</span></li>
+                    <li><span class="category">{{assistant['department']}}</span></li>
+                </ul>
+            </article>
+            {% endfor %}
+                <form action="" method="POST" class="form">
+                <ul>
+                    <li>
+                        <label for="action">Action: </label>
+                        <select id="action" name="action">
+                            <option value="none">None</option>
+                            <option value="delete">Delete</option>
+                            <option value="update">Update</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="id">Id</label>
+                        <input type="text" id="id" name="id" value="{{ request.form['id'] }}">
+                    </li>
+                    <li>
+                        <button type="submit">Submit</button>
+                    </li>
+                </ul>
+                    </form>
+        </div>
+{% endblock %}

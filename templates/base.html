@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - Course</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="header">
+        <div class="container">
+
+            <a href="{{ url_for('home') }}" class="logo">
+                Course System
+            </a>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ url_for('home') }}">Course</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('student') }}">Student</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('instructor') }}">Instructor</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('assistant') }}">Assistant</a>
+                    </li>
+                    <li class="btn">
+                        <a href="{{ url_for('data') }}">Data Entrance</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+<main class="main container">
+    {% block content %}{% endblock %}
+</main>
+
+</body>
+</html>

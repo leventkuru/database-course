@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+{% block content %}
+<div class="articles">
+    <article>
+<a href="{{ url_for('student') }}">
+  <img src="/static/students.png" alt="Student">
+</a>
+ <a href="{{ url_for('instructor') }}">
+  <img src="/static/instructor.png" alt="Instructor">
+</a>
+ <a href="{{ url_for('assistant') }}">
+  <img src="/static/assistant.png" alt="assistant">
+</a>
+        </article>
+</div>
+{% endblock %}

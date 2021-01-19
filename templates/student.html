@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Student{% endblock %}
+{% block content %}
+        <h3>Student Information</h3>
+
+        <div class="articles">
+            {% for student in students%}
+            <article>
+                <h4>{{student['schoolId']}}</h4>
+                <ul>
+                    <li><span class="time">{{student['name']}}</span></li>
+                    <li><span class="time">{{student['surname']}}</span></li>
+                    <li><span class="user">{{student['email']}}</span></li>
+                    <li><span class="category">{{student['department']}}</span></li>
+                </ul>
+            </article>
+
+            {% endfor %}
+                <form action="" method="POST" class="form">
+                <ul>
+                    <li>
+                        <label for="action">Action: </label>
+                        <select id="action" name="action">
+                            <option value="none">None</option>
+                            <option value="delete">Delete</option>
+                            <option value="update">Update</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="id">Id</label>
+                        <input type="text" id="id" name="id" value="{{ request.form['id'] }}">
+                    </li>
+                    <li>
+                        <button type="submit">Submit</button>
+                    </li>
+                </ul>
+                    </form>
+        </div>
+{% endblock %}

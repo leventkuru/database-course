@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Data{% endblock %}
+
+{% block content %}
+        <h3>Enter Data</h3>
+
+        <form action="" method="POST" class="form">
+            {% if error %}
+                <div class="error">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <ul>
+                <li>
+                    <label for="entType">Entrance Type</label>
+                    <select id="entType" name="entType">
+                    <option value="students">Student</option>
+                    <option value="instructors">Instructor</option>
+                    <option value="assistants">Assistant</option>
+                </select>
+                </li>
+
+                <li>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="{{ request.form['name'] }}">
+                </li>
+                <li>
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name="surname" value="{{ request.form['surname'] }}">
+                </li>
+                <li>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" value="{{ request.form['email'] }}">
+                </li>
+                <li>
+                    <label for="department">Department</label>
+                    <input type="text" id="department" name="department" value="{{ request.form['department'] }}">
+                </li>
+                <li>
+                    <button type="submit">Add Data</button>
+                </li>
+            </ul>
+            <a href="{{ url_for('home') }}" class="form-url">Return to homepage</a>
+        </form>
+{% endblock %}
