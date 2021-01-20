@@ -1,24 +1,53 @@
 {% extends "base.html" %}
-{% block title %}Index{% endblock %}
-<style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
+{% block title %}Course{% endblock %}
 {% block content %}
-<div class="articles">
-    <article>
-<a href="{{ url_for('student') }}">
-  <img src="/static/students.png" alt="Student">
-</a>
- <a href="{{ url_for('instructor') }}">
-  <img src="/static/instructor.png" alt="Instructor">
-</a>
- <a href="{{ url_for('assistant') }}">
-  <img src="/static/assistant.png" alt="assistant">
-</a>
-        </article>
-</div>
+    <div class="articles">
+        <h3>Course Information</h3>
+            {% for lesson in lessons%}
+            <article>
+                <h4><b>CRN:</b> {{lesson['CRN']}}</h4>
+                <ul>
+                    <li><span class="user"><b>Lesson Name:</b> {{lesson['lessonName']}}</span></li>
+                </ul>
+                <ul>
+                    <li><span class="user"><b>Lesson Location:</b> {{lesson['location']}}</span></li>
+                </ul>
+                <ul>
+                    <li><span class="user"><b>Lesson starts at </b> {{lesson['startTime']}}</span></li>
+                </ul>
+                <ul>
+                    <li><span class="category"><b>Lesson ends at </b> {{lesson['endTime']}}</span></li>
+                </ul>
+                <ul>
+                    <li><span class="category"><b>Lesson Instructor: </b> {{lesson['iName']}}</span></li>
+                </ul>
+                <ul>
+                    <li><span class="category"><b>Lesson Assistants: </b> {{lesson['aName']}}</span></li>
+                </ul>
+                <ul>
+                    <li><span class="category"><b>Lesson Students: </b> {{lesson['sName']}}</span></li>
+                </ul>
+            </article>
+            {% endfor %}
+        <a href="{{ url_for('addCourse') }}" class="form-url">Want to add course?</a>
+        <form action="" method="POST" class="form">
+                <ul>
+                    <li>
+                        <label for="action">Action: </label>
+                        <select id="action" name="action">
+                            <option value="none">None</option>
+                            <option value="delete">Delete</option>
+                            <option value="update">Update</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="id">Id</label>
+                        <input type="text" id="id" name="id" value="{{ request.form['id'] }}">
+                    </li>
+                    <li>
+                        <button type="submit">Submit</button>
+                    </li>
+                </ul>
+                    </form>
+    </div>
 {% endblock %}

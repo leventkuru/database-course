@@ -25,8 +25,10 @@
                     <option value="instructors">Instructor</option>
                     <option value="assistants">Assistant</option>
                 </select>
+                <li>
+                    <label for="updateId">updateId</label>
+                    <input type="text" id="updateId" name="updateId" value="{{ update_id }}">
                 </li>
-
                 <li>
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" value="{{ request.form['name'] }}">

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Data{% endblock %}
+
+{% block content %}
+        <h3>Add Course</h3>
+
+        <form action="" method="POST" class="form">
+
+            {% if error %}
+                <div class="error">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <ul>
+                <li>
+                <input type="radio" id="radio" name="radio" value="add">
+                <label for="radio">Add</label><br>
+                <input type="radio" id="radio" name="radio" value="update">
+                <label for="radio">Update</label><br>
+                </li>
+                <li>
+                    <label for="updateId">updateId</label>
+                    <input type="text" id="updateId" name="updateId" value="{{ update_id }}">
+                </li>
+                <li>
+                    <label for="lessonName">Lesson Name</label>
+                    <input type="text" id="lessonName" name="lessonName" value="{{ request.form['lessonName'] }}">
+                </li>
+                <li>
+                    <label for="location">Lesson Location</label>
+                    <input type="text" id="location" name="location" value="{{ request.form['location'] }}">
+                </li>
+                <li>
+                    <label for="instructorId">Lesson Instructor's Id</label>
+                    <input type="text" id="instructorId" name="instructorId" value="{{ request.form['instructorId'] }}">
+                </li>
+                <li>
+                    <label for="schoolId">Lesson Student's Id</label>
+                    <input type="text" id="schoolId" name="schoolId" value="{{ request.form['schoolId'] }}">
+                </li>
+                <li>
+                    <label for="assistantId">Lesson Assistant's Id</label>
+                    <input type="text" id="assistantId" name="assistantId" value="{{ request.form['assistantId'] }}">
+                </li>
+                <li>
+                    <label for="startTime">Lesson Start Time</label>
+                    <input type="text" id="startTime" name="startTime" value="{{ request.form['startTime'] }}">
+                </li>
+                <li>
+                    <label for="endTime">Lesson End Time</label>
+                    <input type="text" id="endTime" name="endTime" value="{{ request.form['endTime'] }}">
+                </li>
+                <li>
+                    <button type="submit">Add Data</button>
+                </li>
+            </ul>
+            <a href="{{ url_for('home') }}" class="form-url">Return to homepage</a>
+        </form>
+{% endblock %}
